@@ -2,7 +2,7 @@ import HeaderMenuItem from './HeaderMenuItem';
 
 const HeaderMenuItems = () => {
   return (
-    <div className='w-full absolute right-0 bg-white space-y-4 p-4 md:w-auto md:flex md:static md:p-0 md:space-y-0 md:bg-transparent md:items-center md:space-x-8 2xl:space-x-14 '>
+    <div className='w-full bg-white space-y-4 p-4 md:w-auto md:flex md:static md:p-0 md:space-y-0 md:bg-transparent md:items-center md:space-x-8 2xl:space-x-14 '>
       <HeaderMenuItem label='Crypto Taxes' />
       <HeaderMenuItem label='Free Tools' />
       <HeaderMenuItem label='Resource Center' />

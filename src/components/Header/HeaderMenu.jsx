@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import HeaderMenuItems from './HeaderMenuItems';
 import burgerIcon from '../../assets/burger.svg';
+import { useDispatch } from 'react-redux';
+import { toggleHeaderMenu } from '../../store/header-menu-slice';
 
 const HeaderMenu = () => {
-  const [showMenuItems, setShowMenuItems] = useState(false);
+  const dispatch = useDispatch();
+
   const menuHandler = () => {
-    setShowMenuItems((e) => !e);
+    dispatch(toggleHeaderMenu());
   };
   return (
     <div>
@@ -16,7 +19,6 @@ const HeaderMenu = () => {
       >
         <img src={burgerIcon} alt='burgerIcon' />
       </button>
-      <div className='md:hidden'>{showMenuItems && <HeaderMenuItems />}</div>
       <div className='hidden md:block'>
         <HeaderMenuItems />
       </div>
