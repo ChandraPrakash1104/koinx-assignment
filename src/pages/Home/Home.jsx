@@ -5,6 +5,11 @@ import { useDispatch } from 'react-redux';
 import { fetchCoin } from '../../store/coin-actions';
 import { useEffect } from 'react';
 
+import AboutCoin from '../../components/About/AboutCoin';
+import AboutTeam from '../../components/About/AboutTeam';
+import Trending from '../../components/TrendingCoins/Trending';
+import CurrentCoin from '../../components/CurrentCoin';
+
 const Home = () => {
   const param = useParams();
   console.log(param.id);
@@ -16,12 +21,20 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className='px-3 lg:px-16 lg:grid lg:grid-cols-6'>
-      <div className='lg:col-span-4'>
-        <Coin />
+    <div className='px-3 lg:px-16 '>
+      <div>
+        <CurrentCoin />
       </div>
-      <div className='hidden lg:block lg:col-span-2'>
-        <Sidepanel />
+      <div className='lg:grid lg:grid-cols-6 space-y-8 lg:space-y-0 lg:space-x-8'>
+        <div className='lg:col-span-4 space-y-6'>
+          <Coin />
+          <AboutCoin />
+          <AboutTeam />
+        </div>
+        <div className='lg:col-span-2 space-y-8 '>
+          <Sidepanel />
+          <Trending />
+        </div>
       </div>
     </div>
   );

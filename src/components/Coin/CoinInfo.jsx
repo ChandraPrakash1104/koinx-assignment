@@ -4,39 +4,30 @@ import Chart from '../Chart/Chart';
 import { numberWithCommas } from '../util';
 import up from '../../assets/up.svg';
 import down from '../../assets/down.svg';
-import right from '../../assets/rightPath.svg';
 
 const CoinInfo = () => {
   const coinData = useSelector((state) => state.coin.data);
-  console.log(coinData);
   const profit = coinData?.market_data?.price_change_percentage_24h >= 0;
   return (
-    <div className='space-y-4 '>
-      <div className='text-sm font-semibold mt-4 flex items-center space-x-2'>
-        <div className='text-textLight '>{'Cryptocurrencies'}</div>
-        <div>
-          <img src={right} alt='#' />
-        </div>
-        <div className='text-textNormal '> {coinData.localization?.en}</div>
-      </div>
-
-      <div className='flex space-x-2 lg:space-x-12 items-center font-semibold'>
-        <div className='flex items-center space-x-2'>
-          <div>
-            <img src={coinData.image?.thumb} alt='#' />
-          </div>
-          <div className='text-lg lg:text-xl'>{coinData.localization?.en} </div>
-          <div className='text-sm text-textLight'>
-            {coinData?.symbol?.toUpperCase()}
-          </div>
-        </div>
-        <div className='bg-textLight text-white rounded-md px-2 py-1 font-normal'>
-          Rank #{coinData.market_cap_rank}
-        </div>
-      </div>
-
+    <div>
       <Card>
         <div className='space-y-1 mb-6'>
+          <div className='flex space-x-2 lg:space-x-12 items-center font-semibold mb-4'>
+            <div className='flex items-center space-x-2'>
+              <div>
+                <img src={coinData.image?.thumb} alt='#' />
+              </div>
+              <div className='text-lg lg:text-xl'>
+                {coinData.localization?.en}{' '}
+              </div>
+              <div className='text-sm text-textLight'>
+                {coinData?.symbol?.toUpperCase()}
+              </div>
+            </div>
+            <div className='bg-textLight text-white rounded-md px-2 py-1 font-normal'>
+              Rank #{coinData.market_cap_rank}
+            </div>
+          </div>
           <div className='flex items-center space-x-4'>
             <div className='font-bold text-3xl'>
               ${numberWithCommas(coinData.market_data?.current_price.usd)}

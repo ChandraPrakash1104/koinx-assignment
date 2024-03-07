@@ -27,7 +27,8 @@ function MiniChart({ id }) {
           "isTransparent": false,
           "autosize": true,
           "largeChartUrl": "",
-          "chartOnly": true
+          "chartOnly": false,
+          "noTimeScale": true
         }`;
     container.current.appendChild(script);
   }, []);
